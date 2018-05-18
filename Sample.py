@@ -12,6 +12,8 @@ async def on_message(message):
 	if message.author == client.user:
 		return	
 
+	m = message.content.lower()
+
 
 	if message.content.lower().startswith("!yt "):
 		link = ytsearch.ytsearch(message.content[4:])
@@ -21,7 +23,7 @@ async def on_message(message):
 		msg = 'Hello {0.author.mention}'.format(message)
 		await client.send_message(message.channel, msg)
 
-	if message.content.lower().startswith("i'm "):
+	if m.startswith("i'm ") or m.startswith("im "):
 		msg = "Hello " + message.content[4:] + ", I'm Dad"
 		await client.send_message(message.channel, msg)
 	
