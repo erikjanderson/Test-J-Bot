@@ -15,8 +15,7 @@ async def on_message(message):
 		msg = "Hello " + message.content[4:] + ", I'm Dad"
 		await client.send_message(message.channel, msg)
 	
-	await client.send_message(message.channel, message.author.roles)
-	if "admin" in message.author.roles:
+	if "admin" in [y.name.lower() for y in message.author.roles]:
 		if message.content == "!Kill":
 			await client.send_message(message.channel, "Logging off...")
 			await client.logout()
