@@ -23,8 +23,12 @@ async def on_message(message):
 		msg = 'Hello {0.author.mention}'.format(message)
 		await client.send_message(message.channel, msg)
 
-	if m.startswith("i'm ") or m.startswith("im "):
-		msg = "Hello " + message.content[4:] + ", I'm Dad"
+	if m.startswith("i'm "):
+		msg = "Hello " + message.content[4:] + ", I'm Dad!"
+		await client.send_message(message.channel, msg)
+
+	if m.startswith("im "):
+		msg = "Hello " + message.content[3:] + ", I'm Dad!"
 		await client.send_message(message.channel, msg)
 	
 	if "admin" in [y.name.lower() for y in message.author.roles]:
