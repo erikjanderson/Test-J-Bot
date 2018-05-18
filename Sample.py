@@ -11,8 +11,8 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.content.startswith('!hello'):
-        msg = 'Hello {0.author.mention}'.format(message)
+    if message.content.startswith("I'm "):
+        msg = "Hello " + message.content[4:] + ", I'm Dad"
         await client.send_message(message.channel, msg)
 
 @client.event
