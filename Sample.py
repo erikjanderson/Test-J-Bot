@@ -37,6 +37,7 @@ async def on_message(message):
 async def on_ready():
 	channel = [channel for channel in client.get_all_channels() if channel.name == 'dev-test'][0]
 	await client.send_message(channel, "Systems Online...")
+	await client.change_status(game=discord.Game(name='Skynet Sim 2018'))
 	print('Logged in as')
 	print(client.user.name)
 	print(client.user.id)
