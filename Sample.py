@@ -17,7 +17,8 @@ async def on_message(message):
 	
 	if "admin" in message.author.roles:
 		if message.content == "!Kill":
-			client.logout()
+			await client.send_message(message.channel, "Logging off...")
+			await client.logout()
 
 
 	
