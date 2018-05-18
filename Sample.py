@@ -14,7 +14,6 @@ async def on_message(message):
 
 	m = message.content.lower()
 
-
 	if message.content.lower().startswith("!yt "):
 		link = ytsearch.ytsearch(message.content[4:])
 		await client.send_message(message.channel, link)
