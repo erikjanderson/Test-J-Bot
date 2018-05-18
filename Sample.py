@@ -1,5 +1,6 @@
 # https://github.com/Rapptz/discord.py/blob/async/examples/reply.py
 import discord
+import ytsearch
 
 TOKEN = 'NDQ2NDQxNDc4NzI2ODc3MTg1.DeB0NA.DJ_Q_CuBTtYYD6kWA5CsHexlGB8'
 
@@ -11,6 +12,10 @@ async def on_message(message):
 	if message.author == client.user:
 		return	
 
+
+	if message.content.lower().startswith("!yt "):
+		link = ytsearch.ytsearch('cat')
+		await client.send_message(message.channel, link)
 
 	if message.content.lower().startswith('!hello'):
 		msg = 'Hello {0.author.mention}'.format(message)

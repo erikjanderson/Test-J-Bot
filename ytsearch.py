@@ -1,8 +1,10 @@
+
 import requests
 import random
 from bs4 import BeautifulSoup
 
-def searchYT(query):
+
+def ytsearch(query):
     r = requests.get("https://www.youtube.com/results?search_query=" + query)
     #print(r.text)
     soup = BeautifulSoup(r.text, "html.parser")
@@ -14,8 +16,7 @@ def searchYT(query):
         #print('got one')
         if "results?search" not in vid['href']:
             vids.append('https://youtube.com' + vid['href'])
-    return vids
+    return random.choice(vids)
 
-x = searchYT('cat')
-Video = random.choice(x)
-print(Video)
+
+    
